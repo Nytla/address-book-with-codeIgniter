@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Adress Book Controller
  * 
@@ -18,8 +18,28 @@
  * 
  * @version 0.1
  */
-final class Page_forming extends CI_Controller {
+class Pageforming {
 
+	private $_CI;
+	
+	/**
+	 * 
+	 */
+	public function __construct() {
+		
+		/**
+		 * First, assign the CodeIgniter object to a variable
+		 */
+		$this -> _CI =& get_instance();
+	}
+	
+	public function loadTest() {
+		
+		$this -> _CI -> load -> helper('url');
+		
+		return index_page();
+	}
+	
 	/**
 	 * headerContent
 	 * 
@@ -29,8 +49,10 @@ final class Page_forming extends CI_Controller {
 	 * @param integer $flag
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	static public function headerContent($title = '', $flag_blue_print = 0) {
+	public function headerContent($title = '', $flag_blue_print = 0) {
 
+		
+		
 		/**
 		 * Create variable with header tempalate name
 		 */
@@ -61,7 +83,7 @@ final class Page_forming extends CI_Controller {
 	 * 
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
-	static public function scriptsContent($css_path = '', $js_path = '') {
+	public function scriptsContent($css_path = '', $js_path = '') {
 
 		/**
 		 * Include css or/and javascript content
@@ -87,7 +109,7 @@ final class Page_forming extends CI_Controller {
 	 * 
 	 * @return string $tempalate	This is source footer tempalate
 	 */
-	static public function footerContent() {
+	public function footerContent() {
 
 		/**
 		 * Create variable with footer tempalate name

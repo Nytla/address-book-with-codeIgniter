@@ -1,8 +1,11 @@
+# Folder with logs, develop, faq #
+##################################
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+*/user_guide/*
 
 # Files with Bash Script #
 ##########################

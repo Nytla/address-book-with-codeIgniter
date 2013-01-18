@@ -56,7 +56,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = 'system_folder';
+	$system_path = 'system';
 
 /*
  *---------------------------------------------------------------
