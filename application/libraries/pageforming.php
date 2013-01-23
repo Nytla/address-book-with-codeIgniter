@@ -20,6 +20,11 @@
  */
 class Pageforming {
 
+	/**
+	 * Enter description here...
+	 *
+	 * @var unknown_type
+	 */
 	private $_CI;
 	
 	/**
@@ -49,7 +54,7 @@ class Pageforming {
 	 * @param integer $flag
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public function headerContent($title = '', $flag_blue_print = 0) {
+	public function headerCreate($title = '', $flag_blue_print = 0) {
 
 		
 		
