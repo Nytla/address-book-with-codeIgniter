@@ -5,7 +5,7 @@
 */logs/!index.html
 */cache/*
 */cache/!index.html
-*/user_guide/*
+/user_guide/*
 
 # Files with Bash Script #
 ##########################

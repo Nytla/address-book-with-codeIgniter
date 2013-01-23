@@ -46,7 +46,7 @@ class Pageforming {
 	}
 	
 	/**
-	 * headerContent
+	 * headerCreate
 	 * 
 	 * This function print header template
 	 * 
