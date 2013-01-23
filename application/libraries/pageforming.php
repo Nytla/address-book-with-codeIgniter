@@ -48,7 +48,7 @@ class Pageforming {
 	/**
 	 * headerCreate
 	 * 
-	 * This function print header template
+	 * This function create content for header template
 	 * 
 	 * @param string $title
 	 * @param integer $flag
