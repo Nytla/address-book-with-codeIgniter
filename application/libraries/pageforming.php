@@ -190,17 +190,17 @@ class Pageforming {
 	 * 
 	 * @return string $tempalate	This is source footer tempalate
 	 */
-	public function footerContent() {
+	public function footerCreate() {
 
 		/**
 		 * Create variable with footer tempalate name
 		 */
-		$template_name = Config::dataArray('templates', 'footer');
+//		$template_name = Config::dataArray('templates', 'footer');
 
 		/**
 		 * Create array with variable for footer tempalate
 		 */
-		$create_project_year = Locale::languageEng('site', 'year');
+		$create_project_year = $this -> _locale['site']['year'];
 
 		$dash = chr(45);
 
@@ -208,7 +208,9 @@ class Pageforming {
 			"year" => (date("Y") == $create_project_year) ? date("Y") : $create_project_year . $dash . date("Y"),
 		);
 
-		return Templating::renderingTemplate($template_name, $params);
+		$this -> _CI -> parser -> parse('footer.html', $params);
+		
+//		return Templating::renderingTemplate($template_name, $params);
 	}
 }
 ?>
