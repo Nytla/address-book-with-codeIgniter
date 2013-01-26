@@ -81,6 +81,11 @@ class Booklist extends CI_Controller {
 		 * Parse our template
 		 */
 		$this -> parser -> parse('user/booklist.html', $data);
+		
+		/**
+		 * 
+		 */
+		$this -> pageforming -> footerCreate();
 	}
 
 	/**
