@@ -365,34 +365,57 @@ $config['proxy_ips'] = '';
 | This is my settings
 |
 */
-$config['server_protocol'] = 'http';
+$config['common_charset'] = 'utf-8';
 
-$config['header'] = 'header.html';
+$config['server'] = array(
+	'protocol'	=> 'http',
+	'name' 		=> $_SERVER['SERVER_NAME'],
+	'dot'		=> '.',
+	'separator' => ':',
+	'slash'		=> '/',
+	'backslash'	=> "\\"
+);
 
-$config['scripts'] = 'scripts.html';
+$config['table_name'] = array(
+		'clients'		=> 'clients',
+		'administrators'=> 'administrators',
+		'phrases'		=> 'phrases',
+		'countries'		=> 'countries',
+		'cities'		=> 'cities',
+		'photos'		=> 'photos'
+);
 
-$config['footer'] = 'footer.html';
+$config['templates'] = array(
+	'header'	=> 'header.html',
+	'scripts'	=> 'scripts.html',
+	'footer'	=> 'footer.html'
+);
+
+$config['paths'] = array(
+	'root'		=> dirname(__FILE__),
+	'public'	=> 'public/',
+	'images' => 'images/',
+	'libraries'	=> 'libraries/',
+);
+
+$config['image_settings'] = array(
+	'images_path'	=> '/public/images/'
+);
+
+$config['css'] = array(
+	'blue_print_path'	=> '/libraries/css/blueprint-v1.0.1/blueprint/',
+	'path'	=> '/public/css/',
+	'blue_print_comment_start'	=> '<!-- Framework CSS BLUEPRINT START -->',
+	'blue_print_comment_finish' => '<!-- Framework CSS BLUEPRINT FINISH -->',
+);
+
+$config['js'] = array(
+	'blue_print_path'	=> '/libraries/css/blueprint-v1.0.1/blueprint/',
+	'path'	=> '/public/js/',
+	'blue_print_comment_start'	=> '<!-- Framework CSS BLUEPRINT START -->',
+	'blue_print_comment_finish' => '<!-- Framework CSS BLUEPRINT FINISH -->',
+);
 
 
-
-/*
-				"path"		=> $root_path . '/application/views',			
-				"name"		=> '/address_book',
-				"cache"		=> '/cache',
-				"header"	=> 'header.html',
-				"scripts"	=> 'scripts.html',
-				"footer"	=> 'footer.html',
-				"errors"	=> 'errors.html',
-				"authorization"	=> 'authorization.html',
-				"layout"	=> 'layout.html',
-				"add_admin"	=> 'add_admin.html',
-				"book_list"	=> 'book_list.html',
-				"add_new_record"=> 'add_new_client.html',
-				"edit_client"	=> 'edit_client.html',
-				"user_book_list"=> 'user_book_list.html'
-*/
-			
-			
-			
 /* End of file config.php */
 /* Location: ./application/config/config.php */
