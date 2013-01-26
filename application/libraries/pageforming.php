@@ -21,14 +21,29 @@
 class Pageforming {
 
 	/**
-	 * Enter description here...
+	 * _CI
 	 *
-	 * @var unknown_type
+	 * @var null
 	 */
 	private $_CI;
 	
 	/**
-	 * 
+	 * _config
+	 *
+	 * @var null
+	 */
+	private $_config;
+	
+	/**
+	 * _locale
+	 *
+	 * @var null
+	 */
+	private $_locale;
+	
+	/**
+	 * Enter description here...
+	 *
 	 */
 	public function __construct() {
 		
@@ -36,13 +51,36 @@ class Pageforming {
 		 * First, assign the CodeIgniter object to a variable
 		 */
 		$this -> _CI =& get_instance();
+		
+		/**
+		 * Load data from config file 
+		 */
+		$this -> _CI -> config -> load('config', TRUE);
+		
+		$this -> _config = $this -> _CI -> config -> item('config');
+		
+		/**
+		 * Load data from locale file
+		 */
+		$this -> _CI -> lang -> load('locale', '/');
+		
+		$this -> _locale = $this -> _CI -> lang -> line('english');
 	}
 	
+	/**
+	 * Enter description here...
+	 *
+	 * @return unknown
+	 */
 	public function loadTest() {
 		
 		$this -> _CI -> load -> helper('url');
 		
-		return index_page();
+//		return index_page();
+
+//		return $this -> _congig['common_charset'] . ' - ' . $this -> _congig['paths']['root'];
+
+		return $this -> _locale['site']['name'] . '_|_';
 	}
 	
 	/**
@@ -54,31 +92,39 @@ class Pageforming {
 	 * @param integer $flag
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public function headerCreate($title = '', $flag_blue_print = 0) {
+	public function headerCreate($title, $blue_print_flag = FALSE) {
 
+//		$this -> _locale = $this -> _CI -> lang -> line('book_list');
 		
-		
-		/**
-		 * Create variable with header tempalate name
-		 */
-		$template_name = $this -> config -> config['header'];
-
 		/**
 		 * Create array with variables for header tempalate
 		 */
 		$params = array(
-			"charset"			=> $this -> config -> config['charset'],
-			"site_name"			=> $this -> lang -> line('site_name'),
-			"title"				=> $title,
-			"image_path"		=> Config::dataArray('image_settings', 'images_path'),
-			"screen"			=> Config::dataArray('css', 'path'),
-			"print"				=> Config::dataArray('css', 'path'),
-			"ie"				=> Config::dataArray('css', 'path'),
-			"jquery"			=> Config::dataArray('jquery_lib', 'path'),
-			"flag_blue_print"	=> $flag_blue_print
+			'charset'			=> $this -> _config['common_charset'],
+//			'site_name'			=> $this -> lang -> line('site_name'),
+			'title'				=> $this -> _locale[$title]['title'],
+			'image_path'		=> $this -> _config['image_settings']['images_path'],
+			'blue_print_path'	=> $this -> _config['css']['blue_print_path']
 		);
 
-		return Templating::renderingTemplate($template_name, $params);
+		/**
+		 * 
+		 */
+		$this -> _CI -> parser -> parse('header.html', $params);
+		
+		/**
+		 * Create variable with header tempalate name
+		 */
+		//$template_name = $this -> config -> config['header'];
+
+		if ($blue_print_flag) {
+		
+			$params = array(
+				'blue_print_path'	=> $this -> _config['css']['blue_print_path']
+			);
+				
+			$this -> _CI -> parser -> parse('blue_print.html', $params);
+		}
 	}
 
 	/**
@@ -88,16 +134,45 @@ class Pageforming {
 	 * 
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
-	public function scriptsContent($css_path = '', $js_path = '') {
+	public function scriptsCreate($css_array = FALSE, $js_array = '') {
 
 		/**
 		 * Include css or/and javascript content
 		 */
-		$template_name = Config::dataArray('templates', 'scripts');
+//		$template_name = Config::dataArray('templates', 'scripts');
 
+		/**
+		 * CSS
+		 */
+		if ($css_array) {
+			
+			$css_params = array(
+				'path'	=> $this -> _config['css']['path'],
+				'css_array'	=> $css_array
+			);
+			
+		}
+		
+		$this -> _CI -> parser -> parse('css.html', $css_params);
+		
+		/**
+		 * JS
+		 */
+		if ($css_array) {
+			
+			$css_params = array(
+				'path'	=> $this -> _config['js']['path'],
+				'js_array'	=> $js_array
+			);
+			
+		}
+		
+		$this -> _CI -> parser -> parse('js.html', $css_params);
+		
 		/**
 		 * Create array with variables for scripts tempalate
 		 */
+		/*
 		$params = array(
 			"css_path"	=> $css_path,
 			"js_path"	=> $js_path,
@@ -105,6 +180,7 @@ class Pageforming {
 		);
 
 		return Templating::renderingTemplate($template_name, $params);
+		*/
 	}
 
 	/**
