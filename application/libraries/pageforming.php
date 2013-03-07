@@ -21,14 +21,30 @@
 class Pageforming {
 
 	/**
-	 * Enter description here...
+	 * _CI
 	 *
-	 * @var unknown_type
+	 * @var null
 	 */
 	private $_CI;
 	
 	/**
+	 * _config
+	 *
+	 * @var null
+	 */
+	public $_config;
+	
+	/**
+	 * _locale
+	 *
+	 * @var null
+	 */
+	public $_locale;
+	
+	/**
+	 * Constructor
 	 * 
+	 * This function initialize our objects
 	 */
 	public function __construct() {
 		
@@ -36,13 +52,32 @@ class Pageforming {
 		 * First, assign the CodeIgniter object to a variable
 		 */
 		$this -> _CI =& get_instance();
+		
+		/**
+		 * Load data from config file 
+		 */
+		$this -> _CI -> config -> load('config', TRUE);
+		
+		$this -> _config = $this -> _CI -> config -> item('config');
+		
+		/**
+		 * Load data from locale file
+		 */
+		$this -> _CI -> lang -> load('locale', '/');
+		
+		$this -> _locale = $this -> _CI -> lang -> line('english');
 	}
 	
+	/**
+	 * Enter description here...
+	 *
+	 * @return unknown
+	 */
 	public function loadTest() {
 		
 		$this -> _CI -> load -> helper('url');
-		
-		return index_page();
+
+		return $this -> _locale['site']['name'] . '_|_';
 	}
 	
 	/**
@@ -51,60 +86,113 @@ class Pageforming {
 	 * This function create content for header template
 	 * 
 	 * @param string $title
-	 * @param integer $flag
+	 * @param boolean $flag
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public function headerCreate($title = '', $flag_blue_print = 0) {
+	public function headerCreate($title, $blue_print_flag = FALSE) {
 
-		
-		
 		/**
 		 * Create variable with header tempalate name
 		 */
-		$template_name = $this -> config -> config['header'];
-
+		$header_template_name = $this -> _config['templates']['header'];
+		
 		/**
 		 * Create array with variables for header tempalate
 		 */
 		$params = array(
-			"charset"			=> $this -> config -> config['charset'],
-			"site_name"			=> $this -> lang -> line('site_name'),
-			"title"				=> $title,
-			"image_path"		=> Config::dataArray('image_settings', 'images_path'),
-			"screen"			=> Config::dataArray('css', 'path'),
-			"print"				=> Config::dataArray('css', 'path'),
-			"ie"				=> Config::dataArray('css', 'path'),
-			"jquery"			=> Config::dataArray('jquery_lib', 'path'),
-			"flag_blue_print"	=> $flag_blue_print
+			'charset'			=> $this -> _config['common']['charset'],
+			'title'				=> $this -> _locale[$title]['title'],
+			'image_path'		=> $this -> _config['image_settings']['images_path'],
+			'blue_print_path'	=> $this -> _config['css']['blue_print_path']
 		);
 
-		return Templating::renderingTemplate($template_name, $params);
+		/**
+		 * Parse our template
+		 */
+		$this -> _CI -> parser -> parse($header_template_name, $params);
+		
+		/**
+		 * Create variable with blue print framework tempalate name
+		 */
+		$bp_template_name = $this -> _config['templates']['blue_print'];
+
+		if ($blue_print_flag) {
+		
+			$params = array(
+				'blue_print_path'	=> $this -> _config['css']['blue_print_path']
+			);
+			
+			/**
+			 * Parse our template
+			 */
+			$this -> _CI -> parser -> parse($bp_template_name, $params);
+		}
 	}
 
 	/**
-	 * scriptsContent
+	 * scriptsCreate
 	 *
 	 * This function include javascript or css our header
 	 * 
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
-	public function scriptsContent($css_path = '', $js_path = '') {
+	public function scriptsCreate($css_array = FALSE, $js_array = FALSE) {
 
+		if ($css_array) {
+			
+			/**
+			 * Create variable with CSS tempalate name
+			 */
+			$css_template_name = $this -> _config['templates']['css'];
+			
+			/**
+			 * Create array with variables for CSS tempalate
+			 */
+			$css_params = array(
+				'path'	=> $this -> _config['css']['path'],
+				'css_array'	=> $css_array
+			);
+			
+			/**
+			 * Parse our template
+			 */
+			$this -> _CI -> parser -> parse($css_template_name, $css_params);
+		}
+		
+		if ($js_array) {
+			
+			/**
+			 * Create variable with CSS tempalate name
+			 */
+			$js_template_name = $this -> _config['templates']['js'];
+			
+			/**
+			 * Create array with variables for JS tempalate
+			 */
+			$css_params = array(
+				'js_array'		=> $js_array,
+				
+			);
+			
+			/**
+			 * Parse our template
+			 */
+			$this -> _CI -> parser -> parse($js_template_name, $css_params);
+		}
+		
 		/**
-		 * Include css or/and javascript content
+		 * Create variable with noscript tempalate name
 		 */
-		$template_name = Config::dataArray('templates', 'scripts');
-
-		/**
-		 * Create array with variables for scripts tempalate
-		 */
-		$params = array(
-			"css_path"	=> $css_path,
-			"js_path"	=> $js_path,
-			"noscript"	=> Locale::languageEng('noscript', 'message'),
+		$noscript_template_name = $this -> _config['templates']['noscript'];
+		
+		$noscript_params = array(
+			'noscript' => $this -> _locale['noscript']['message']
 		);
-
-		return Templating::renderingTemplate($template_name, $params);
+		
+		/**
+		 * Parse our template
+		 */
+		$this -> _CI -> parser -> parse($noscript_template_name, $noscript_params);
 	}
 
 	/**
@@ -114,25 +202,35 @@ class Pageforming {
 	 * 
 	 * @return string $tempalate	This is source footer tempalate
 	 */
-	public function footerContent() {
+	public function footerCreate() {
 
 		/**
 		 * Create variable with footer tempalate name
 		 */
-		$template_name = Config::dataArray('templates', 'footer');
+		$template_name = $this -> _config['templates']['footer'];
 
 		/**
 		 * Create array with variable for footer tempalate
 		 */
-		$create_project_year = Locale::languageEng('site', 'year');
+		$create_project_year = $this -> _locale['site']['year'];
 
 		$dash = chr(45);
 
+		/**
+		 * Create array with variables for footer tempalate
+		 */
 		$params = array(
-			"year" => (date("Y") == $create_project_year) ? date("Y") : $create_project_year . $dash . date("Y"),
+			'year' => (date("Y") == $create_project_year) ? date("Y") : $create_project_year . $dash . date("Y"),
 		);
 
-		return Templating::renderingTemplate($template_name, $params);
+		$this -> _CI -> parser -> parse($template_name, $params);
 	}
+	
+	/**
+	 * Destructor
+	 *
+	 * This is destructor close connect with Data Base
+	 */
+	public function __destruct() {}
 }
 ?>

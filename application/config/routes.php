@@ -40,7 +40,7 @@
 
 //$route['default_controller'] = "welcome";
 
-$route['default_controller'] = "booklist";
+$route['default_controller'] = "userbooklist";
 
 $route['404_override'] = '';
 

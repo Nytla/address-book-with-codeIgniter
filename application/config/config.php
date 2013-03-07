@@ -365,34 +365,94 @@ $config['proxy_ips'] = '';
 | This is my settings
 |
 */
-$config['server_protocol'] = 'http';
 
-$config['header'] = 'header.html';
+$config['common'] = array(
+	'charset' => 'utf-8'
+);
 
-$config['scripts'] = 'scripts.html';
+$config['server'] = array(
+	'protocol'	=> 'http',
+	'name' 		=> $_SERVER['SERVER_NAME'],
+	'dot'		=> '.',
+	'separator' => ':',
+	'slash'		=> '/',
+	'backslash'	=> "\\"
+);
 
-$config['footer'] = 'footer.html';
+$config['table_name'] = array(
+	'clients'		=> 'clients',
+	'administrators'=> 'administrators',
+	'phrases'		=> 'phrases',
+	'countries'		=> 'countries',
+	'cities'		=> 'cities',
+	'photos'		=> 'photos'
+);
+
+$config['templates'] = array(
+	'header'	=> 'header.html',
+	'blue_print'=> 'blue_print.html',
+	'css'		=> 'css.html',
+	'js'		=> 'js.html',
+	'noscript'	=> 'noscript.html',
+	'footer'	=> 'footer.html',
+	'user_book_list'=> 'user/book_list.html',
+	'authorization'	=> 'admin/authorization.html',
+	'layout'		=> 'admin/layout.html',
+	'book_list' 	=> 'admin/book_list.html',
+	'add_new_client'=> 'admin/add_new_client.html',
+	'edit_client' 	=> 'admin/edit_client.html',
+	'add_new_admin' 	=> 'admin/add_new_admin.html',
+);
+
+$config['paths'] = array(
+	'root'		=> dirname(__FILE__),
+	'public'	=> 'public/',
+	'images' => 'images/',
+	'libraries'	=> 'libraries/'
+);
+
+$config['image_settings'] = array(
+	'images_path'		=> '/public/images/',
+	'image_clients_path'=> '/public/images/uploads_client/',
+);
+
+$config['css'] = array(
+	'blue_print_path'	=> '/libraries/css/blueprint-v1.0.1/blueprint/',
+	'path'				=> '/public/styles/',
+	'demo_table'		=> 'demo_table_jui.css',
+	'jquery_ui'			=> 'jquery-ui-1.7.2.custom.css'
+);
+
+$config['jquery_lib'] = array(
+	'path'		 => '/libraries/jquery/',
+	'jquery'	 => 'jquery-1.9.0.js',
+	'data_table' => 'jQuery_dataTables_1.9.3_min.js',
+	'validation' => 'jQuery_validation_1.9.0.js',
+	'form_plugin'=> 'jQuery_form_3.14.js',
+);
+	
+$config['js'] = array(
+	'blue_print_path'	=> '/libraries/css/blueprint-v1.0.1/blueprint/',
+	'path'				=> '/public/js/',
+	'user_book_list'	=> 'user_book_list.js',
+	'book_list'			=> 'book_list.js',
+	'authorization'		=> 'authorization.js',
+	'book_list'			=> 'book_list.js',
+	'add_new_client'	=> 'add_new_client.js',
+	'edit_client'		=> 'edit_client.js',
+	'add_new_admin'		=> 'add_new_admin.js'
+);
+
+$config['cookie'] = array(
+	'one_day'		=> 86400,
+	'seven_days'	=> 604800,
+	'thirty_days'	=> 2592000,
+	'six_month'		=> 15811200,
+	'one_year'		=> 31536000,
+	'left_time'		=> -1,
+);
 
 
 
-/*
-				"path"		=> $root_path . '/application/views',			
-				"name"		=> '/address_book',
-				"cache"		=> '/cache',
-				"header"	=> 'header.html',
-				"scripts"	=> 'scripts.html',
-				"footer"	=> 'footer.html',
-				"errors"	=> 'errors.html',
-				"authorization"	=> 'authorization.html',
-				"layout"	=> 'layout.html',
-				"add_admin"	=> 'add_admin.html',
-				"book_list"	=> 'book_list.html',
-				"add_new_record"=> 'add_new_client.html',
-				"edit_client"	=> 'edit_client.html',
-				"user_book_list"=> 'user_book_list.html'
-*/
-			
-			
-			
 /* End of file config.php */
 /* Location: ./application/config/config.php */

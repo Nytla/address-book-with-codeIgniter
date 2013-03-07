@@ -1,20 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Welcome to CodeIgniter</title>
-		<link type="text/css" rel="stylesheet" media="all" href="/public/styles/style.css">
-		<script type="text/javascript" src="/libraries/jquery/jquery-1.8.3.js"></script>
-		<script type="text/javascript" src="/public/js/testing.js"></script>
-	</head>
-	<body>
-		<div id="container">
-			<h1>Welcome to CodeIgniter!</h1>
-			<h1>{name}</h1>
-			<p>Encoding: {charset}</p>
-			{persons}
-				<p>{f_name}</p>
-			{/persons}
-		</div>
-	</body>
-</html>
+			<br>
+			<br>
+			<br>
+			<div class="span-10 prepend-10 append-0">
+				<h1>{auth}</h1>
+			</div>
+			<!-- Authorization form START -->
+			<div id="auth_content" class="span-10 prepend-8 append-0">
+				<form method="post" name="authForm" id="authForm" action="/index.php/authorization/checkForm/">
+					<fieldset>
+						<legend></legend>
+						<p>
+							<label for="login">{login}</label><br>
+							<input id="login" type="text" name="valueLogin" value="{login_value}" class="text" maxlength="16">
+						</p>
+						<p>
+							<label for="password">{password}</label><br>
+							<input id="password" type="password" name="valuePassword" value="{password_value}" class="text" maxlength="16">
+						</p>
+						<p>
+							<input id="hide" type="hidden" name="valueHide" value="" class="text" maxlength="16">
+						</p>
+							{errors}
+							<div id="error_empty" class="hide">{error_empty}</div>
+							<div id="error_capcha" class="hide">{error_captcha}</div>	
+						<p>
+							<input id="loginButton" type="submit" value="{login_button}">
+						</p>
+					</fieldset>
+				</form>
+			</div>
+			<!-- Authorization form FINISH -->
+			<br>
+			<br>
+			<br>

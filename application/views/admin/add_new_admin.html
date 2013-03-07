@@ -1,0 +1,46 @@
+			<br>
+			<br>
+			<br>
+			<div class="span-10 prepend-11 append-0">
+				<h3><a href="{site_url}/layout/">{layout}</a></h3>
+			</div>
+			<div class="span-10 prepend-8 append-0">
+				<h1>{page_name}</h1>
+			</div>
+			<div id="auth" class="span-10 prepend-10 append-0">
+			</div>
+			<!-- Add administrator form START -->
+			<div id="auth_content" class="span-10 prepend-8 append-0">
+				<form method="post" name="addAdminForm" id="addAdminForm" action="">
+					<fieldset>
+						<legend></legend>
+						<p>
+							<label for="login">{login}</label><br>
+							<input type="text" id="login" name="login" class="text" minlength="5" maxlength="16">
+						</p>
+						<p>
+							<label for="confirm_password">{password}</label><br>
+							<input type="password" id="password" name="password" class="text" minlength="5" maxlength="16">
+						</p>
+						<p>
+							<label for="confirm_password">{confirm_password}</label><br>
+							<input type="password" id="confirm_password" name="confirm_password" class="text">
+						</p>
+						
+						<p>
+							<label for="admin_permission">{administrator}</label>
+							<input type="checkbox" id="admin_permission"  name="admin_permission" value="1" class="text">
+						</p>
+						
+							<div id="error_message" class="hide"></div>
+						<p>
+							<input id="loginButton" type="submit" class="submit" value="{save}">
+						</p>
+					</fieldset>
+				</form>
+				<div id="add_good_message" class="hide">{add_good_message}</div>
+			</div>
+			<!-- Add administrator form FINISH -->
+			<br>
+			<br>
+			<br>

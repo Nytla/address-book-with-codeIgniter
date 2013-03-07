@@ -1,0 +1,82 @@
+			<br>
+			<div class="span-10 prepend-10 append-0 last">
+				<h2>{page_name}</h2>
+			</div>
+			<br>
+			<!-- Add New Client Record Forms START -->
+			<div id="auth_content" class="span-16 prepend-4 append-0">
+				<fieldset>
+					<legend></legend>
+					<div id="forms_content" class="prepend-2">
+						<form action="{site_url}/editclient/ajaxCheckClientData/" method="post" id="InformationForm">
+
+							<div>
+								<label for="first_name">{first_name}</label>
+								<input type="text" name="first_name" id="first_name" value="{first_name_value}" class="text" maxlength="16">
+							</div>
+							<div>
+								<label for="last_name">{last_name}</label>
+								<input type="text" name="last_name" id="last_name" value="{last_name_value}" class="text" maxlength="16">
+							</div>
+							<div>
+								<label for="email">{email}</label>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email" value="{email_value}" class="text" maxlength="16">
+							</div>
+							<div>
+								<label for="country">{country}</label>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<select name="country" id="country">
+									<option value="">{empty_option}</option>
+									{country_array}<option value="{country_id}"{selected}>{countryname_en}</option>
+									{/country_array}</select>
+							</div>
+							<div>
+								<label for="city">{city}</label>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="city" id="city">
+									<option value="">{empty_option}</option>
+									{city_array}<option value="{city_id}"{selected}>{cityname_en}</option>
+								{/city_array}</select>
+							</div>	
+							<input type="hidden" name="photo_id" id="photo_id" value="{image_id_value}">
+							<input type="hidden" name="client_id" id="client_id" value="{client_id_value}">
+						</form>
+						<form action="" method="post" enctype="multipart/form-data" id="ImagesForm">
+							<div id="image_block">
+								<label for="image_file">{photo}</label>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="file" name="image_file" id="image_file" class="text">
+								<input type="submit" name="upload_photo" id="upload_photo" value="Upload" disabled="disabled">
+								<img class="hide" width="32" height="32" alt="{preloader_text}" src="{image_path}photo-loader.gif" id="preloader">
+							</div>
+							<div>
+								<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allowed image types: jpeg, gif, png | Maximum file size: 1 Mb</h6>
+							</div>
+							<div id="errors_image" class="hide"></div>
+							<div id="preview_photo" class="prepend-2">
+								<img src="{image_clients_path}{img_src}" alt="{img_alt}" height="{img_height}" width="{img_width}" id="{img_id}">
+							</div>
+						</form>
+						<form action="" method="post" id="NotesForm">
+							<br>
+							<p>
+								<label for="notes">{notes} {mess_max_length_notes}</label>
+								<br>
+								<textarea cols="20" rows="5" name="notes" id="notes" class="text" maxlength="1500">{notes_value}</textarea>
+							</p>
+							<div class="span-8 prepend-3">
+								<input type="submit" name="save" id="save" value="{save}">
+								<input type="reset" name="reset_forms" id="reset_forms" value="{reset}">
+							</div>
+							<br>
+							<br>
+							<div id="validate_errors" class="span-10 prepend-0 last"></div>
+						</form>
+					</div>
+					<div id="add_good_message" class="success hide"></div>
+				</fieldset>
+			</div>
+			<!-- Add New Client Record Forms FINISH -->
+			<br>
+			<div class="span-10 prepend-9 append-0 last">
+				<h3><a href="{site_url}/booklist/">{back_to_book_list}</a></h3>
+			</div>
