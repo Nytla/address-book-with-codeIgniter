@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Authorization
+ * Addnewclient
  * 
- * This is authorization class
+ * This class to add new client
  * 
  * @version 0.1
  */
@@ -381,4 +381,3 @@ class Addnewclient extends CI_Controller {
 		}
 	}
 }
-?>

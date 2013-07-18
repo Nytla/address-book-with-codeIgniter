@@ -108,6 +108,13 @@ class Authorization extends CI_Controller {
 		$this -> pageforming -> footerCreate();
 	}
 	
+	/**
+	 * checkForm
+	 * 
+	 * This function check user form
+	 * 
+	 * @access public
+	 */
 	public function checkForm() {
 		
 		/**
@@ -157,8 +164,9 @@ class Authorization extends CI_Controller {
 	/**
 	 * setAuthorization
 	 * 
-	 * Enter description here...
+	 * This function to set auth cookie 
 	 *
+	 * @access private
 	 * @param array $admin_data_array
 	 */
 	private function setAuthorization($admin_data_array) {
@@ -186,4 +194,3 @@ class Authorization extends CI_Controller {
 		redirect(base_url() . index_page() . '/layout/');
 	}
 }
-?>

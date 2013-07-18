@@ -78,8 +78,15 @@ class Layout extends CI_Controller {
 		$this -> pageforming -> footerCreate();
 	}
 	
+	/**
+	 * getAdminPermission
+	 * 
+	 * This fucniton to get permission of admin
+	 *
+	 * @access private
+	 * @return array
+	 */
 	private function getAdminPermission() {
 		return $this -> layout_model -> getAdminPermissionFromDB();	
 	}
 }
-?>

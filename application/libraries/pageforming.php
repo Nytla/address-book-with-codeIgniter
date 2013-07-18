@@ -1,20 +1,20 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Adress Book Controller
+ * Adress Book Library
  * 
- * page_forming.php
+ * pageforming.php
  *
- * This is file with page_form class
+ * This is file with Pageforming class
  * 
  * @category	controllers
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
+ * @author		Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**
- * Indexes
+ * Pageforming
  * 
- * This is indexes class
+ * This is Pageforming class
  * 
  * @version 0.1
  */
@@ -45,6 +45,8 @@ class Pageforming {
 	 * Constructor
 	 * 
 	 * This function initialize our objects
+	 * 
+	 * @access public
 	 */
 	public function __construct() {
 		
@@ -69,22 +71,11 @@ class Pageforming {
 	}
 	
 	/**
-	 * Enter description here...
-	 *
-	 * @return unknown
-	 */
-	public function loadTest() {
-		
-		$this -> _CI -> load -> helper('url');
-
-		return $this -> _locale['site']['name'] . '_|_';
-	}
-	
-	/**
 	 * headerCreate
 	 * 
 	 * This function create content for header template
 	 * 
+	 * @access public
 	 * @param string $title
 	 * @param boolean $flag
 	 * @return string $tempalate	This is source header tempalate
@@ -134,6 +125,7 @@ class Pageforming {
 	 *
 	 * This function include javascript or css our header
 	 * 
+	 * @access public
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
 	public function scriptsCreate($css_array = FALSE, $js_array = FALSE) {
@@ -200,6 +192,7 @@ class Pageforming {
 	 * 
 	 * This function print footer template
 	 * 
+	 * @access public
 	 * @return string $tempalate	This is source footer tempalate
 	 */
 	public function footerCreate() {
@@ -230,7 +223,8 @@ class Pageforming {
 	 * Destructor
 	 *
 	 * This is destructor close connect with Data Base
+	 * 
+	 * @access public
 	 */
 	public function __destruct() {}
 }
-?>

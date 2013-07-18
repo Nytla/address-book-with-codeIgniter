@@ -1,5 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Userbooklist
+ * 
+ * This is user book list class
+ * 
+ * @version 0.1
+ */
 class Userbooklist extends CI_Controller {
 	
 	/**
@@ -97,7 +104,7 @@ class Userbooklist extends CI_Controller {
 	}
 
 	/**
-	 * clientDataJSON
+	 * ajaxClientDataJSON
 	 * 
 	 * This function get client't data (json) for ajax request
 	 * 
@@ -116,4 +123,3 @@ class Userbooklist extends CI_Controller {
 		echo $this -> booklist_model -> getClientDataJSON();
 	}
 }
-?>

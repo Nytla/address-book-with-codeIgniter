@@ -75,7 +75,6 @@ $(document).ready(function() {
 	 */
 	$.InputFileButton();
 	
-
 	$("#upload_photo").click(function() {
 		
 		$.uploadImage();
@@ -93,7 +92,6 @@ $(document).ready(function() {
 
 		return false;
 	});
-
 });
 
 /**

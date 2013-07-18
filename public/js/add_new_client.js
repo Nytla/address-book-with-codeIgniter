@@ -25,7 +25,7 @@ $(document).ready(function() {
 		var object_options = {
 			module:		'cities_formed',
 			file_name:	'cities_formed.php',
-			data:		{ 
+			data:	{ 
 				country_id: option_selected,
 				city_id: option_selected_city
 			}
@@ -48,7 +48,7 @@ $(document).ready(function() {
 		var object_options = {
 			module:		'cities_formed',
 			file_name:	'cities_formed.php',
-			data:		{ country_id: this.value }
+			data:	{ country_id: this.value }
 		};
 
 		/**

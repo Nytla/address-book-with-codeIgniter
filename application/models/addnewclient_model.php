@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Booklistmodel
+ * Addnewclient_model
  * 
- * Enter description here...
+ * This is add new client class
  *
  * @version 0.1
  */
@@ -27,6 +27,8 @@ class Addnewclient_model extends CI_Model {
 	 * Constructor
 	 * 
 	 * This funtion initialize prorerties with DB name
+	 * 
+	 * @access public
 	 */
 	public function __construct() {
 		/**
@@ -44,6 +46,7 @@ class Addnewclient_model extends CI_Model {
 	 *
 	 * This function get all countries from Database
 	 *
+	 * @access public
 	 * @return array / boolean
 	 */
 	public function getAllCountriesFromDB() {
@@ -78,6 +81,7 @@ class Addnewclient_model extends CI_Model {
 	 *
 	 * This function get cities from Database depending on selected country
 	 *
+	 * @access public
 	 * @param string $country_id
 	 * @return array / boolean
 	 */
@@ -110,18 +114,21 @@ class Addnewclient_model extends CI_Model {
 	}
 	
 	/**
-	 * Enter description here...
+	 * addNewImegeToDB
+	 * 
+	 * This fuction to add new image in DB
 	 *
-	 * @param unknown_type $image_name
-	 * @param unknown_type $image_height
-	 * @param unknown_type $image_width
-	 * @param unknown_type $image_description
-	 * @return unknown
+	 * @access public
+	 * @param string $image_name
+	 * @param string $image_height
+	 * @param string $image_width
+	 * @param string $image_description
+	 * @return string
 	 */
 	public function addNewImegeToDB($image_name, $image_height, $image_width, $image_description) {
 		
 		/**
-		 * 
+		 * Set arra
 		 */
 		$insert_data = array(
 			'photo_name' => $image_name,
@@ -131,17 +138,25 @@ class Addnewclient_model extends CI_Model {
 		);
 		
 		/**
-		 * 
+		 * Imser image to DB
 		 */
 		$this -> db -> insert($this -> _DB_table_name_photos, $insert_data);
 		
 		return $this->db->insert_id();
 	}
 	
+	/**
+	 * addNewClientInDb
+	 * 
+	 * This function to add new client to DB
+	 *
+	 * @access public
+	 * @param array $data_array
+	 */
 	public function addNewClientInDb($data_array) {
 		
 		/**
-		 * 
+		 * Set array
 		 */
 		$insert_data = array(
 			'first_name'=> $data_array['first_name'],
@@ -154,35 +169,8 @@ class Addnewclient_model extends CI_Model {
 		);
 
 		/**
-		 * 
+		 * Insert new client to DB
 		 */
 		$this -> db -> insert($this -> _DB_table_name_clients, $insert_data);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Layout
+ * Booklist
  * 
- * This is layout class
+ * This is book list class
  * 
  * @version 0.1
  */
@@ -110,7 +110,6 @@ class Booklist extends CI_Controller {
 		 * Create footer
 		 */
 		$this -> pageforming -> footerCreate();
-		
 	}
 	
 	/**
@@ -133,6 +132,13 @@ class Booklist extends CI_Controller {
 		echo $this -> booklist_model -> getClientDataJSON();
 	}
 	
+	/**
+	 * ajaxDeleteClient
+	 * 
+	 * This funciton to delete client (ajax)
+	 *
+	 * @access public
+	 */
 	public function ajaxDeleteClient() {
 		
 		/**
@@ -146,4 +152,3 @@ class Booklist extends CI_Controller {
 		echo $this -> booklist_model -> deleteClientFromDB($_POST['id']);	
 	}
 }
-?>

@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Booklistmodel
+ * Editclient_model
  * 
- * Enter description here...
+ * This is edit client class
  *
  * @version 0.1
  */
@@ -41,8 +41,11 @@ class Editclient_model extends CI_Model {
 	 * Construct
 	 * 
 	 * This function initialize table properties
+	 * 
+	 *@access public
 	 */
 	public function __construct() {
+		
 		/**
 		 * Set variables with name of DB table
 		 */
@@ -52,6 +55,14 @@ class Editclient_model extends CI_Model {
 		$this -> _DB_table_name_photos		= $this -> pageforming -> _config['table_name']['photos'];
 	}
 	
+	/**
+	 * getClientDataFromDB
+	 * 
+	 * This function to get a data of client from DB
+	 *
+	 * @param string $id
+	 * @return array / boolean
+	 */
 	public function getClientDataFromDB($id) {
 		
 		$client_id = preg_replace("/([^\d])/", '', $id);
@@ -79,6 +90,7 @@ class Editclient_model extends CI_Model {
 	 *
 	 * This function get all countries from Database
 	 *
+	 * @access public
 	 * @param integer $country_id
 	 * @return array / boolean
 	 */
@@ -122,9 +134,9 @@ class Editclient_model extends CI_Model {
 	 *
 	 * This function get all countries from Database
 	 *
+	 * @access public
 	 * @param integer $country_id
 	 * @param integer $city_id
-	 * 
 	 * @return array / boolean
 	 */
 	public function getCitiesFromDB($country_id, $city_id) {
@@ -170,6 +182,7 @@ class Editclient_model extends CI_Model {
 	 * 
 	 * This function to get image's data
 	 *
+	 * @access piblic
 	 * @param integer $image_id
 	 * @return array / boolean
 	 */
@@ -200,6 +213,7 @@ class Editclient_model extends CI_Model {
 	 * 
 	 * This function update client data in SB
 	 *
+	 * @access public
 	 * @param arrat $data_array
 	 * @return boolean
 	 */
@@ -234,4 +248,3 @@ class Editclient_model extends CI_Model {
 		}
 	}
 }
-?>

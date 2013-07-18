@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Authorization
+ * Addnewadmin
  * 
- * This is authorization class
+ * This is Addnewadmin class
  * 
  * @version 0.1
  */
@@ -85,7 +85,6 @@ class Addnewadmin extends CI_Controller {
 		 */
 		$js_array = array(
 			$jquery_library,
-//			$formplugin,
 			$addnewclient
 		);
 		
@@ -104,10 +103,9 @@ class Addnewadmin extends CI_Controller {
 			'login'				=> $this -> pageforming -> _locale['add_new_admin']['login'],
 			'password'			=> $this -> pageforming -> _locale['add_new_admin']['password'],
 			'confirm_password'	=> $this -> pageforming -> _locale['add_new_admin']['confirm_password'],
-			'administrator'	=> $this -> pageforming -> _locale['add_new_admin']['administrator'],
+			'administrator'		=> $this -> pageforming -> _locale['add_new_admin']['administrator'],
 			'add_good_message'	=> $this -> pageforming -> _locale['add_new_admin']['add_good_message'],
-			'save'			=> $this -> pageforming -> _locale['add_new_client']['save'],
-
+			'save'				=> $this -> pageforming -> _locale['add_new_client']['save']
 		);
 
 		/**
@@ -196,35 +194,7 @@ class Addnewadmin extends CI_Controller {
 					'flag'	=> TRUE,
 					'message' => $this -> pageforming -> _locale['add_new_admin']['add_good_message']
 				));
-				
-			}
-
-			
-
-			
+			}	
 		}
 	}
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

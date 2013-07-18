@@ -16,53 +16,53 @@
 $lang = array(
 	'english' => array(
 	
-		'site'			=> array(
-			'name' => 'Address Book',
-			'year' => 2013
+		'site'						=> array(
+			'name' 					=> 'Address Book',
+			'year' 					=> 2013
 		),
 		
-		'noscript'		=> array(
-			'message' => 'Your browser does not support JavaScript or JavaScript has been disabled!'
+		'noscript'					=> array(
+			'message'				=> 'Your browser does not support JavaScript or JavaScript has been disabled!'
 		),
 		
 		'user_book_list'=> array(
-			'title' 		=> 'Public Adress Book List'
+			'title' 				=> 'Public Adress Book List'
 		), 
 		
 		'book_list' 	=> array(
-			'title' 		=> 'Admin: Adress Book List',
-			'login'			=> 'Login',
-			'search_word'	=> 'Search',
-			'keywords_word'	=> 'Keywords',
-			'id_word'	=> 'ID',
-			'name_word'		=> 'Name',
-			'country_word'	=> 'Country',
-			'city_word'		=> 'City',
-			'action_word'	=> 'Action',
-			'preloader_text'=> 'Loading...',
-			'add_new_client'=> 'Add New Client',
-			'details_open'	=> 'Details open',
-			'details_close'	=> 'Details close',
-			'back_to_page_layout' => 'Back to the Page Layout'
+			'title' 				=> 'Admin: Adress Book List',
+			'login'					=> 'Login',
+			'search_word'			=> 'Search',
+			'keywords_word'			=> 'Keywords',
+			'id_word'				=> 'ID',
+			'name_word'				=> 'Name',
+			'country_word'			=> 'Country',
+			'city_word'				=> 'City',
+			'action_word'			=> 'Action',
+			'preloader_text'		=> 'Loading...',
+			'add_new_client'		=> 'Add New Client',
+			'details_open'			=> 'Details open',
+			'details_close'			=> 'Details close',
+			'back_to_page_layout' 	=> 'Back to the Page Layout'
 
 		),
 		
 		'authorization'	=> array(
-			'title'			=> 'Admin: Login',
-			'auth'			=> 'Authorization',
-			'login'			=> 'Login:',
-			'password'		=> 'Password:',
-			'login_button'	=> 'Login',
-			'error_empty'	=> 'Login or password is empty.',
-			'error_captcha'	=> 'You did not validate captcha.',
-			'error_incorect'=> '<div class="error">Login or password is incorrect.</div>'
+			'title'					=> 'Admin: Login',
+			'auth'					=> 'Authorization',
+			'login'					=> 'Login:',
+			'password'				=> 'Password:',
+			'login_button'			=> 'Login',
+			'error_empty'			=> 'Login or password is empty.',
+			'error_captcha'			=> 'You did not validate captcha.',
+			'error_incorect'		=> '<div class="error">Login or password is incorrect.</div>'
 		),
 		
 		'layout'	=> array(
-			'title'			=> 'Admin: Page Layout',
-			'log_out'		=> 'Log Out',
-			'add_admin'		=> 'Add New Admin',
-			'content'		=> 'Welcome to the Admin Panel, '
+			'title'					=> 'Admin: Page Layout',
+			'log_out'				=> 'Log Out',
+			'add_admin'				=> 'Add New Admin',
+			'content'				=> 'Welcome to the Admin Panel, '
 		),
 		
 		'add_new_client'=> array(
@@ -92,19 +92,16 @@ $lang = array(
 		),
 		
 		'add_new_admin'=> array(
-			'title'				=> 'Admin: Add New Admin',
-			'page_name'			=> 'Add New Admin',
-			'layout'			=> 'Page Layout',
-			'content'			=> 'Add New Administrator',
-			'login'				=> 'Login',
-			'password'			=> 'Password',
-			'confirm_password'	=> 'Confirm password',
-			'administrator'		=> 'Administrator',
-			'admin_exists'		=> 'Adminitsrator with this login already exists.',
-			'add_good_message'	=> 'The new administrator has been added to the database.'
+			'title'					=> 'Admin: Add New Admin',
+			'page_name'				=> 'Add New Admin',
+			'layout'				=> 'Page Layout',
+			'content'				=> 'Add New Administrator',
+			'login'					=> 'Login',
+			'password'				=> 'Password',
+			'confirm_password'		=> 'Confirm password',
+			'administrator'			=> 'Administrator',
+			'admin_exists'			=> 'Adminitsrator with this login already exists.',
+			'add_good_message'		=> 'The new administrator has been added to the database.'
 		)
 	)
 );
-
-
-?>

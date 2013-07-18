@@ -407,7 +407,7 @@ $config['templates'] = array(
 $config['paths'] = array(
 	'root'		=> dirname(__FILE__),
 	'public'	=> 'public/',
-	'images' => 'images/',
+	'images' 	=> 'images/',
 	'libraries'	=> 'libraries/'
 );
 
@@ -451,7 +451,6 @@ $config['cookie'] = array(
 	'one_year'		=> 31536000,
 	'left_time'		=> -1,
 );
-
 
 
 /* End of file config.php */

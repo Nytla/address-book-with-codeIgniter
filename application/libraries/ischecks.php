@@ -1,20 +1,20 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Adress Book Controller
+ * Adress Book Library
  * 
- * page_forming.php
+ * ischecks.php
  *
- * This is file with page_form class
+ * This is file with Ischecks class
  * 
  * @category	controllers
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
+ * @author		Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**
- * Indexes
+ * Ischecks
  * 
- * This is indexes class
+ * This is Ischecks class
  * 
  * @version 0.1
  */
@@ -31,6 +31,8 @@ class Ischecks {
 	 * Constructor
 	 * 
 	 * This function initialize our objects
+	 * 
+	 * @access public
 	 */
 	public function __construct() {
 		
@@ -53,16 +55,6 @@ class Ischecks {
 		
 			show_404();
 		}
-		
-/*
-		try {
-			$_SERVER['HTTP_X_REQUESTED_WITH'];
-		
-		} catch (Validation_Exception $object) {
-		
-			show_404();
-		}
-*/
 	}
 	
 	/**
@@ -120,16 +112,5 @@ class Ischecks {
 				redirect(base_url() . index_page() . '/authorization/');
 			}
 		}
-		
 	}
 }
-
-
-
-
-
-
-
-
-
-?>

@@ -186,7 +186,6 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-//			url: "/application/ajax/delete_client.php",
 			url: "/index.php/booklist/ajaxDeleteClient/",
 			cache: true,
 			async: false,
@@ -383,7 +382,6 @@ function fnFormatDetails(oTable, nTr, view_id) {
 		$.ajax({  
 			type: "POST",
 			dataType: "json",
-//			url: "/application/ajax/clients_json.php",
 			url: "/index.php/userbooklist/ajaxClientDataJSON/",
 			cache: false,
 			async: false,
@@ -427,7 +425,6 @@ function fnFormatDetails(oTable, nTr, view_id) {
 
 					var edit_url = $(document.createElement('a'))
 						.attr({
-//							"href": '/adminpanel/edit_client.php?edit_id=' + v.id,
 							"href": '/index.php/editclient/edit/' + v.id,
 							"name": 'edit'
 						})

@@ -3,7 +3,7 @@
 /**
  * Booklistmodel
  * 
- * Enter description here...
+ * This is book list class
  *
  * @version 0.1
  */
@@ -49,7 +49,7 @@ class Booklist_model extends CI_Model {
 	 *
 	 * This function initialize connect to our Database
 	 *
-	 * @return object $_DB_connect This is PDO connect mysql
+	 * @access public
 	 */
 	public function __construct() {
 
@@ -64,10 +64,11 @@ class Booklist_model extends CI_Model {
 	}
 	
 	/**
-	 * getClientData
+	 * getClientDataJSON
 	 * 
-	 * Enter description here...
+	 * This function to get a data of client 
 	 *
+	 * @access public
 	 * @return array
 	 */
 	public function getClientDataJSON() {
@@ -106,20 +107,22 @@ class Booklist_model extends CI_Model {
 		$result = $query -> result_array();
 		
 		/**
-		 * 
+		 * Return a data (json) of client 
 		 */
-		foreach ($result as $row) {
-//			
-		}
-		
 		return json_encode($result);
 	}
 	
+	/**
+	 * deleteClientFromDB
+	 * 
+	 * This function to delete a client from DB
+	 *
+	 * @access public
+	 * @param string $client_id
+	 * @return string (json)
+	 */
 	public function deleteClientFromDB($client_id) {
-		
-		/**
-		 * 
-		 */
+
 		$this -> db -> where('id', $client_id);
 		
 		$delete = $this -> db -> delete($this -> _DB_table_name_clients);
@@ -134,6 +137,7 @@ class Booklist_model extends CI_Model {
 	 * 
 	 * This function get random phrase from DB
 	 *
+	 * @access public
 	 * @return array
 	 */
 	public function getRandomPhrase() {
@@ -147,4 +151,3 @@ class Booklist_model extends CI_Model {
 		return $query -> result_array();
 	}
 }
-?>

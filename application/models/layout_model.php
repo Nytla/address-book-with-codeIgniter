@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Booklistmodel
+ * Layout_model
  * 
- * Enter description here...
+ * This is layout class
  *
  * @version 0.1
  */
@@ -20,6 +20,8 @@ class Layout_model extends CI_Model {
 	 * Construct
 	 * 
 	 * This function initialize table properties
+	 * 
+	 * @access public
 	 */
 	public function __construct() {
 		/**
@@ -29,10 +31,11 @@ class Layout_model extends CI_Model {
 	}
 	
 	/**
-	 * getAllCountriesFromDB
+	 * getAdminPermissionFromDB
 	 *
-	 * This function get all countries from Database
+	 * This function to get a permission of admin from DB
 	 *
+	 * @access public
 	 * @return array / boolean
 	 */
 	public function getAdminPermissionFromDB() {
@@ -68,4 +71,3 @@ class Layout_model extends CI_Model {
 		}
 	}
 }
-?>

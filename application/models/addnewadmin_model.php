@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Booklistmodel
+ * Addnewadmin_model
  * 
- * Enter description here...
+ * This is to add new administrator class
  *
  * @version 0.1
  */
@@ -20,6 +20,8 @@ class Addnewadmin_model extends CI_Model {
 	 * Constructor
 	 * 
 	 * This funtion initialize prorerties with DB name
+	 * 
+	 * @access public
 	 */
 	public function __construct() {
 		/**
@@ -28,6 +30,15 @@ class Addnewadmin_model extends CI_Model {
 		$this -> _DB_table_name_administrators = $this -> pageforming -> _config['table_name']['administrators'];	
 	}
 	
+	/**
+	 * getAdminNameFromDB
+	 * 
+	 * This function to get a name of administrator from database
+	 *
+	 * @access public
+	 * @param string $login
+	 * @return boolean
+	 */
 	public function getAdminNameFromDB($login) {
 		
 		$this -> db -> select('admin_id');
@@ -38,17 +49,24 @@ class Addnewadmin_model extends CI_Model {
 		
 		if ($query -> num_rows() > 0) {
 			
-			return TRUE;
-			
+			return TRUE;			
 		} else {
 			return FALSE; 
 		}
 	}
 	
+	/**
+	 * addNewAdminInDB
+	 * 
+	 * This function to add new administrator in DB
+	 *
+	 * @access public
+	 * @param array $admin_data
+	 */
 	public function addNewAdminInDB($admin_data) {
 		
 		/**
-		 * 
+		 * Set array
 		 */
 		$insert_data = array(
 			'admin_login' 		=> $admin_data['login'],
@@ -57,9 +75,8 @@ class Addnewadmin_model extends CI_Model {
 		);
 		
 		/**
-		 * 
+		 * Insert data to DB
 		 */
 		$this -> db -> insert($this -> _DB_table_name_administrators, $insert_data);
 	}
 }
-?>

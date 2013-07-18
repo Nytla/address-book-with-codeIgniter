@@ -32,4 +32,3 @@ class Logout extends CI_Controller {
 		redirect(base_url() . index_page() . '/authorization/');
 	}
 }
-?>

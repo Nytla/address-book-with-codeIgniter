@@ -5,8 +5,6 @@
  */
 $(document).ready(function() {
 
-//	alert('xcv');
-	
 	/**
 	 * Hide errors
 	 */

@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Booklistmodel
+ * Authorization_model
  * 
- * Enter description here...
+ * This is authorization class
  *
  * @version 0.1
  */
@@ -17,8 +17,11 @@ class Authorization_model extends CI_Model {
 	private $_DB_table_name_administrators;
 	
 	/**
-	 * Enter description here...
-	 *
+	 * Constructor
+	 * 
+	 * This function initialize a name of DB 
+	 * 
+	 * @access public
 	 */
 	public function __construct() {
 		/**
@@ -32,10 +35,10 @@ class Authorization_model extends CI_Model {
 	 * 
 	 * This function get administrator's id and hash
 	 *
-	 * @param unknown_type $admin_id
-	 * @param unknown_type $admin_hash
-	 * 
-	 * @return unknown
+	 * @access public
+	 * @param string $admin_id
+	 * @param string $admin_hash
+	 * @return array / boolean
 	 */
 	public function getAdminIdAndHash($admin_id, $admin_hash) {
 
@@ -51,23 +54,22 @@ class Authorization_model extends CI_Model {
 	/**
 	 * getAdminData
 	 * 
-	 * Enter description here...
+	 * This function to get a data of administrator
 	 *
-	 * @param unknown_type $admin_login
-	 * @return unknown
+	 * @access public
+	 * @param string $admin_login
+	 * @return array / boolean
 	 */
 	public function getAdminData($admin_login) {
 		
 		/**
-		 * 
+		 * Select data from SB
 		 */
 		$this -> db -> select('admin_id, admin_login, admin_password, admin_permission');
 		
 		$this -> db -> where('admin_login', mysql_escape_string($admin_login));
 		
 		$query = $this -> db -> get($this -> _DB_table_name_administrators);
-		
-//		$num_rows = $query -> db -> num_rows();
 		
 		if ($query -> num_rows() > 0) {
 			
@@ -80,30 +82,15 @@ class Authorization_model extends CI_Model {
 		}
 	}
 	
+	/**
+	 * Enter description here...
+	 *
+	 * @access public
+	 * @param string $admin_id
+	 * @param string $hash
+	 */
 	public function updateHash($admin_id, $hash) {
-		
-//		$this->db->where('username',$user);
-//      $this->db->update('users',$email);
-
 		$this -> db -> where('admin_id', $this->db->escape_str($admin_id));
-		
 		$this -> db -> update($this -> _DB_table_name_administrators, array('admin_hash' => $hash));
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

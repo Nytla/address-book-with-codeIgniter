@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Authorization
+ * Editclient
  * 
- * This is authorization class
+ * This is class to edit a client
  * 
  * @version 0.1
  */
@@ -87,12 +87,12 @@ class Editclient extends CI_Controller {
 	);
 	
 	/**
-	 * index
+	 * edit
 	 * 
-	 * Index Page for this controller.
+	 * This function to edit a client 
 	 *
-	 * @param integer $client_id
 	 * @access public
+	 * @param integer $client_id
 	 */
 	public function edit($client_id) {
 
@@ -272,12 +272,8 @@ class Editclient extends CI_Controller {
 				'error'	=> validation_errors()
 			));
 		} else {
-			
-//			$this -> addnewclient_model -> addNewClientInDb($this -> input -> post());
 
 			$this -> editclient_model -> editClientDataFromDB($this -> input -> post());
-			
-//echo 'YES!_';
 
 			echo json_encode(array(
 				'flag'	=> TRUE,
@@ -286,4 +282,3 @@ class Editclient extends CI_Controller {
 		}
 	}
 }
-?>
